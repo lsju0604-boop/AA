@@ -1,0 +1,110 @@
+/* ============================================
+   딸깍 스튜디오 - 글로벌 스타일시트
+   - Tailwind CSS를 가져오고, 커스텀 테마 색상과
+     각 섹션별 스타일을 정의합니다.
+   ============================================ */
+@import "tailwindcss";
+
+/* ---- CSS 변수 (테마 색상) ---- */
+:root {
+  --background: #f5f5f5;
+  /* 밝은 회색 배경 */
+  --foreground: #171717;
+  /* 기본 텍스트 색상 */
+  --emerald: #10b981;
+  /* 에메랄드 Primary 색상 */
+  --emerald-dark: #059669;
+  /* 에메랄드 hover 색상 */
+  --emerald-light: #d1fae5;
+  /* 에메랄드 밝은 색 */
+}
+
+/* ---- Tailwind 테마 연결 ---- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-emerald: var(--emerald);
+  --color-emerald-dark: var(--emerald-dark);
+  --color-emerald-light: var(--emerald-light);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ---- 기본 body 스타일 ---- */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---- 스크롤바 숨기기 (깔끔한 UI) ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+/* ---- AI 배지 회전 애니메이션 ---- */
+.ai-badge {
+  display: inline-block;
+  transform: rotate(-30deg);
+  background: var(--emerald);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  top: -10px;
+  right: -30px;
+}
+
+/* ---- 부드러운 호버 전환 효과 ---- */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- 갤러리 이미지 호버 효과 ---- */
+.gallery-image {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ---- 탭 활성 상태 스타일 ---- */
+.tab-active {
+  border: 3px solid var(--emerald);
+  border-radius: 8px;
+}
+
+/* ---- 프롬프트 입력창 포커스 효과 ---- */
+.prompt-input:focus {
+  outline: none;
+  border-color: var(--emerald);
+  box-shadow: 0 0 0 3px var(--emerald-light);
+}
+
+/* ---- 드롭다운 셀렉트 스타일 ---- */
+.custom-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
